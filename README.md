@@ -45,25 +45,3 @@ const char* mqtt_server = "broker.hivemq.com";
 |---|---|---|
 | `casa/puerta/estado` | `abierto`, `cerrado` | Estado actual de la puerta. Se publica únicamente en cambio de estado. |
 
-##### Comportamiento
-
-1. En `setup()`: Configura pines, conecta a WiFi y configura el servidor MQTT.
-2. En `loop()`: Verifica conexión MQTT (reconecta si es necesario), lee el sensor, actualiza el LED según el estado, y publica por MQTT solo cuando el estado cambia.
-
-#### Uso
-
-1. Instalar las librerías `PubSubClient` en el Arduino IDE o PlatformIO.
-2. Configurar las credenciales WiFi y el servidor MQTT.
-3. Conectar el hardware según la tabla de pines.
-4. Subir el código `espc3_puerta_simple.ino` al ESP32-C3.
-5. Monitorear el tópico MQTT `casa/puerta/estado` para recibir las notificaciones de apertura/cierre.
-
-## Estructura del proyecto
-
-```
-seguridad/
-├── README.md
-└── esp32c3/
-    └── espc3_puerta_simple/
-        └── espc3_puerta_simple.ino
-```
